@@ -1,5 +1,6 @@
 import { app, BrowserWindow } from "electron";
 import * as path from "path";
+import loadDevTool from "electron-load-devtool";
 
 let mainWindow: Electron.BrowserWindow | null;
 
@@ -15,6 +16,9 @@ function createWindow() {
 
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, "../index.html"));
+
+  // Load devtools.
+  loadDevTool(loadDevTool.REACT_DEVELOPER_TOOLS);
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools();
