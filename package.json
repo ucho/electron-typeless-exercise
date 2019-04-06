@@ -1,0 +1,25 @@
+{
+  "name": "electron-typeless-exercise",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/main/index.js",
+  "scripts": {
+    "start": "electron .",
+    "prestart": "npm run build",
+    "build": "webpack",
+    "prebuild": "npm run clean",
+    "clean": "rimraf dist",
+    "watch": "webpack --watch --config-name renderer"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^4.1.4",
+    "html-webpack-plugin": "^3.2.0",
+    "rimraf": "^2.6.3",
+    "ts-loader": "^5.3.3",
+    "typescript": "^3.4.2",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
+  }
+}
