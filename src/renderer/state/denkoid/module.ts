@@ -1,8 +1,13 @@
 import { createEpic, createReducer, ModuleLoaderOptions, DefaultState } from 'typeless';
+import * as Rx from "typeless/rx";
 import { DenkoIdActions, DenkoIdState, MODULE } from './interface';
 
 // Create Epic for side effects
-const epic = createEpic(MODULE);
+const epic = createEpic(MODULE)
+  .on(DenkoIdActions.login, () => {
+    window.Bridge.openLoginDialog();
+    return Rx.empty();
+  });
 
 const initialState: DenkoIdState = {
   denkoid: ""

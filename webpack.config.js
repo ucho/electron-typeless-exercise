@@ -5,9 +5,12 @@ const main = {
   name: "main",
   mode: 'development',
   target: 'electron-main',
-  entry: path.join(__dirname, 'src', 'main', 'index'),
+  entry: {
+    index: path.join(__dirname, 'src', 'main', 'index'),
+    preload: path.join(__dirname, "src", "main", "preload")
+  },
   output: {
-    filename: 'index.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'dist', 'main')
   },
   node: {
