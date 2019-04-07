@@ -1,14 +1,10 @@
 import * as React from "react";
 import { useModule, useActions, useMappedState } from "typeless";
-import { DenkoIdEpic, DenkoIdReducer } from "../../../state/denkoid/module";
+import DenkoIdModule from "../../../state/denkoid/module";
 import { DenkoIdActions } from "../../../state/denkoid/interface";
 
 export function Main() {
-  useModule({
-    epic: DenkoIdEpic,
-    reducer: DenkoIdReducer,
-    reducerPath: ["denkoid"]
-  });
+  useModule(DenkoIdModule);
 
   const { login } = useActions(DenkoIdActions);
   const { denkoid } = useMappedState(state => state.denkoid);
